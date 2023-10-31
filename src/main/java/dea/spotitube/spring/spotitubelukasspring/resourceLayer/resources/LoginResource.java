@@ -1,4 +1,4 @@
-package dea.spotitube.spring.spotitubelukasspring.resourceLayer;
+package dea.spotitube.spring.spotitubelukasspring.resourceLayer.resources;
 
 
 import com.fasterxml.jackson.annotation.JsonGetter;
@@ -14,13 +14,14 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 @RestController
+@RequestMapping("/login")
 public class LoginResource {
 
     @Autowired
     private UserService userService;
-    @PostMapping("/login")
+
+    @PostMapping(consumes = "application/json", produces = "application/json")
     public ResponseEntity<UserResponseDTO> login(@RequestBody UserRequestDTO userRequestDTO) {
         UserResponseDTO userResponseDTO = userService.authUser(userRequestDTO);
         return ResponseEntity.ok(userResponseDTO);

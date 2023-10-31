@@ -4,6 +4,8 @@ package dea.spotitube.spring.spotitubelukasspring.datasourceLayer;
 import dea.spotitube.spring.spotitubelukasspring.datasourceLayer.util.ConnectionManager;
 import dea.spotitube.spring.spotitubelukasspring.resourceLayer.dto.TrackDTO;
 import dea.spotitube.spring.spotitubelukasspring.resourceLayer.dto.response.TrackResponseDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+@Repository
 public class TrackDao {
     private final Logger logger = Logger.getLogger(getClass().getName());
 
@@ -44,6 +47,7 @@ public class TrackDao {
         return new TrackResponseDTO(tracks);
     }
 
+    @Autowired
     public void setConnectionManager(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }

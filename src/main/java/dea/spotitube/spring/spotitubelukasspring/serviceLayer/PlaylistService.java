@@ -8,7 +8,10 @@ import dea.spotitube.spring.spotitubelukasspring.resourceLayer.dto.TrackDTO;
 import dea.spotitube.spring.spotitubelukasspring.resourceLayer.dto.UserDTO;
 import dea.spotitube.spring.spotitubelukasspring.resourceLayer.dto.response.PlaylistResponseDTO;
 import dea.spotitube.spring.spotitubelukasspring.resourceLayer.dto.response.TrackResponseDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PlaylistService implements IPlaylistService {
 
     private PlaylistDao playlistDao;
@@ -117,6 +120,7 @@ public class PlaylistService implements IPlaylistService {
     }
 
 
+    @Autowired
     public void setPlaylistDao(PlaylistDao playlistDao) {
         this.playlistDao = playlistDao;
     }

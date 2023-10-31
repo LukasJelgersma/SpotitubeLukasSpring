@@ -5,6 +5,8 @@ import dea.spotitube.spring.spotitubelukasspring.datasourceLayer.util.Connection
 import dea.spotitube.spring.spotitubelukasspring.resourceLayer.dto.PlaylistDTO;
 import dea.spotitube.spring.spotitubelukasspring.resourceLayer.dto.TrackDTO;
 import dea.spotitube.spring.spotitubelukasspring.resourceLayer.dto.response.PlaylistResponseDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.logging.Logger;
 
+@Repository
 public class PlaylistDao {
     private final Logger logger = Logger.getLogger(getClass().getName());
     private ConnectionManager connectionManager;
@@ -197,6 +200,7 @@ public class PlaylistDao {
     }
 
 
+    @Autowired
     public void setConnectionManager(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }
